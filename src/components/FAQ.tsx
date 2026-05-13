@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const FAQS = [
-  { q: "How long is a project?", a: "We've optimized our process for high-velocity luxury; typical sanctuary transformations take only 20 days." },
+  { q: "How long is a project?", a: "We've optimized our process for high-velocity luxury; typical sanctuary transformations take only 30 days." },
   { q: "Do you offer full renovation?", a: "Yes, our services range from specialized plumbing to advanced lighting and scent automation." },
   { q: "Can I choose my stone?", a: "Absolutely. Our concierge will source rare slabs from around the globe just for your vision." },
   { q: "Is there a warranty?", a: "Every Elan space is protected by our industry-leading 10-year comprehensive warranty." },

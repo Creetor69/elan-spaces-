@@ -38,10 +38,9 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
   const NAV_LINKS = [
     { name: "Why Elan", href: "#about" },
     { name: "Packages", href: "#services" },
-    { name: "Reviews", href: "#transformations" },
+    { name: "Atmosphere", href: "#transformations" },
     { name: "How It Works", href: "#atelier" },
-    { name: "Materials", href: "#materials" },
-    { name: "Pricing", href: "#pricing" },
+    { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
     { name: "Booking", href: "#booking" },
   ];
@@ -73,7 +72,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           <motion.a 
             key={link.name}
             style={{ color: navTextColor }}
-            className="text-[9px] xl:text-[10px] uppercase font-mono font-bold tracking-[0.15em] hover:text-cyan-400 px-3 py-1.5 rounded-full transition-all duration-300" 
+            className="text-[11px] xl:text-[12px] uppercase font-mono font-bold tracking-[0.1em] hover:text-cyan-400 px-4 py-2 rounded-full transition-all duration-300" 
             href={link.href}
           >
             {link.name}
@@ -109,7 +108,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             <a 
               key={link.name}
               onClick={() => setIsMenuOpen(false)}
-              className="text-[10px] uppercase font-mono font-bold tracking-[0.2em] text-white hover:text-cyan-100 transition-colors py-2.5 border-b border-white/10" 
+              className="text-[12px] uppercase font-mono font-bold tracking-[0.2em] text-white hover:text-cyan-100 transition-colors py-3.5 border-b border-white/10" 
               href={link.href}
             >
               {link.name}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -8,12 +8,21 @@ import { Atelier } from "./components/Atelier";
 import { Materials } from "./components/Materials";
 import { Pricing } from "./components/Pricing";
 import { FAQ } from "./components/FAQ";
+import { Testimonials } from "./components/Testimonials";
 import { Booking } from "./components/Booking";
 import { Footer } from "./components/Footer";
 import { BookingModal } from "./components/BookingModal";
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  useEffect(() => {
+    // Show booking form pop up after a short delay for instant CTA
+    const timer = setTimeout(() => {
+      setIsBookingOpen(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -27,6 +36,7 @@ export default function App() {
         <div id="materials"><Materials /></div>
         <div id="pricing"><Pricing onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <div id="faq"><FAQ /></div>
+        <div id="testimonials"><Testimonials /></div>
         <div id="booking"><Booking /></div>
         <Footer />
       </main>

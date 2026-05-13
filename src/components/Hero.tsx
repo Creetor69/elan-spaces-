@@ -109,18 +109,22 @@ export function Hero({ onOpenBooking }: HeroProps) {
                 </button>
               </div>
               
-              <div className="flex gap-6 justify-center md:justify-start">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary">
-                    <span className="font-bold text-[10px]">10Y</span>
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-tertiary">Warranty</span>
+              <div className="flex flex-wrap gap-8 justify-center md:justify-start lg:gap-12">
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">1000+</span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Baths Redesigned</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-primary">
-                    <span className="font-bold text-[10px]">20D</span>
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-tertiary">Delivery</span>
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">10Y</span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Full Warranty</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">30D</span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Swift Delivery</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">2024</span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Founded</span>
                 </div>
               </div>
             </motion.div>

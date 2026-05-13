@@ -78,18 +78,11 @@ export function Transformations() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full max-w-5xl"
+          className="mt-12 text-center"
         >
-          {[
-            { text: "Beyond luxury. It's an emotional recalibration every single morning.", author: "Julian R., Brooklyn" },
-            { text: "The light orchestration is sheer genius. My spa is my sanctuary.", author: "Elena V., Upper West Side" },
-            { text: "Pure excellence from design to the final white-glove setup.", author: "Marcus T., Long Island" }
-          ].map((review, idx) => (
-            <div key={idx} className="bg-white/40 p-6 rounded-2xl border border-blue-100 shadow-sm">
-              <p className="font-display text-sm text-blue-900 italic mb-4 leading-relaxed">"{review.text}"</p>
-              <p className="font-accent text-[10px] text-primary uppercase tracking-widest">— {review.author}</p>
-            </div>
-          ))}
+          <p className="font-display text-lg md:text-2xl text-on-surface italic max-w-2xl mx-auto leading-relaxed">
+            From functional necessity to emotional sanctuary. Experience the Elan metamorphosis.
+          </p>
         </motion.div>
       </div>
     </section>

@@ -5,7 +5,7 @@ export function Footer() {
         <div className="text-center">
           <h4 className="font-display text-4xl md:text-6xl text-primary mb-4">Elan Spaces</h4>
           <p className="font-body text-sm md:text-base text-tertiary">
-            Architecture for the Soul. Est. 2024.
+            Architecture for the Soul. Bengaluru, India.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-12">

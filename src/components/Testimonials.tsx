@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 
 const REVIEWS = [
-  { text: "Beyond luxury. It's an emotional recalibration every single morning. The 30-day timeline was met with precision.", author: "Julian R., Brooklyn" },
-  { text: "The light orchestration is sheer genius. My spa is my sanctuary. Their 10-year warranty gives total peace of mind.", author: "Elena V., Upper West Side" },
-  { text: "Pure excellence from design to the final white-glove setup. 1000+ redesigns clearly show in their expertise.", author: "Marcus T., Long Island" },
-  { text: "Elan Spaces managed to turn my outdated bathroom into an organic flowing masterpiece in exactly 30 days.", author: "Sarah L., Manhattan" }
+  { text: "Beyond luxury. It's an emotional recalibration every single morning. The 30-day timeline was met with precision in Indiranagar.", author: "Rajeshwari S., Indiranagar" },
+  { text: "The light orchestration is sheer genius. My spa is my sanctuary. Their 25 years of experience truly shows in the finish.", author: "Venkatesh K., Jayanagar" },
+  { text: "Pure excellence from design to the final white-glove setup. Best bathroom renovation team in Bengaluru.", author: "Lakshmi N., Sadashivnagar" },
+  { text: "Elan Spaces turned my outdated bathroom into an organic masterpiece in exactly 30 days. Remarkable commitment.", author: "Karthik R., Whitefield" }
 ];
 
 export function Testimonials() {

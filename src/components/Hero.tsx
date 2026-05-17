@@ -46,7 +46,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
         <img 
           alt="Luxury Bathroom Interior" 
           className="w-full h-full object-cover object-center brightness-105 contrast-95"
-          src="https://lh3.googleusercontent.com/aida/ADBb0uhTai54FfMxNUoNcPGmxL8p7qd6a3a33OXJCskDf8FaYQ81N5QTuVz3iu5PMfOTMQ9n5Z0FLV-A_bLJrs8dqbXh5w4iRFCE8PNJ5KgzPH2FfVljXAZvPWjGgtQoU5C1v6PKTWQdKcgg8IY004vjV9LLmxHT987KBemTx1zNNDIzSyYvsB-pKzI0YuFEE52uDj7GMBOocSzhheLODk5kU5_6Ld5-Ox3EYKrMoMhUUY78zNKc5gXobcfYBQ"
+          src="https://i.ibb.co/qFJ08ntQ/screen.png"
           referrerPolicy="no-referrer"
         />
       </motion.div>
@@ -89,7 +89,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
               transition={{ delay: 1, duration: 1 }}
               className="font-body text-xs md:text-sm lg:text-base text-tertiary mb-5 md:mb-8 max-w-xs md:max-w-md mx-auto md:mx-0 leading-relaxed"
             >
-              We craft bespoke bathroom sanctuaries that blend organic minimalism with ethereal tranquility.
+              We craft bespoke bathroom sanctuaries in Bengaluru that blend organic minimalism with ethereal tranquility.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -108,25 +108,6 @@ export function Hero({ onOpenBooking }: HeroProps) {
                   Book Now
                 </button>
               </div>
-              
-              <div className="flex flex-wrap gap-8 justify-center md:justify-start lg:gap-12">
-                <div className="flex flex-col gap-1">
-                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">1000+</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Baths Redesigned</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">10Y</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Full Warranty</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">30D</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Swift Delivery</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="font-display text-2xl md:text-3xl text-primary font-bold">2024</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-tertiary">Founded</span>
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -141,14 +122,14 @@ export function Hero({ onOpenBooking }: HeroProps) {
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             className="w-64 h-64 lg:w-96 lg:h-96 bg-primary-container/20 rounded-full blur-[100px]"
           />
-          <motion.div 
+            <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 1.5 }}
             className="absolute glass-panel rounded-xl p-4 w-48 lg:w-64"
           >
-             <p className="font-accent text-sm text-primary">Est. 2024</p>
-             <p className="font-body text-[10px] text-tertiary mt-2">Bespoke Architectural Excellence</p>
+             <p className="font-accent text-sm text-primary">25+ Years Experience</p>
+             <p className="font-body text-[10px] text-tertiary mt-2">Pioneering Luxury in Bengaluru</p>
           </motion.div>
         </div>
       </div>

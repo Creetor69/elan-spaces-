@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { Stats } from "./components/Stats";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
 import { Transformations } from "./components/Transformations";
@@ -9,9 +10,11 @@ import { Materials } from "./components/Materials";
 import { Pricing } from "./components/Pricing";
 import { FAQ } from "./components/FAQ";
 import { Testimonials } from "./components/Testimonials";
+import { Clients } from "./components/Clients";
 import { Booking } from "./components/Booking";
 import { Footer } from "./components/Footer";
 import { BookingModal } from "./components/BookingModal";
+import { FloatingActions } from "./components/FloatingActions";
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -29,6 +32,7 @@ export default function App() {
       <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
       <main className="snap-container">
         <div id="home"><Hero onOpenBooking={() => setIsBookingOpen(true)} /></div>
+        <Stats />
         <div id="about"><About /></div>
         <div id="services"><Services /></div>
         <div id="transformations"><Transformations /></div>
@@ -36,10 +40,12 @@ export default function App() {
         <div id="materials"><Materials /></div>
         <div id="pricing"><Pricing onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <div id="faq"><FAQ /></div>
+        <div id="clients"><Clients /></div>
         <div id="testimonials"><Testimonials /></div>
         <div id="booking"><Booking /></div>
         <Footer />
       </main>
+      <FloatingActions />
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );

@@ -36,10 +36,10 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
   );
 
   const NAV_LINKS = [
-    { name: "Why Elan", href: "#about" },
-    { name: "Packages", href: "#services" },
+    { name: "About Us", href: "#about" },
     { name: "Atmosphere", href: "#transformations" },
     { name: "How It Works", href: "#atelier" },
+    { name: "Trusted Clients", href: "#clients" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
     { name: "Booking", href: "#booking" },

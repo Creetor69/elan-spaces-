@@ -86,19 +86,11 @@
   }
   
   .snap-container {
-    scroll-snap-type: y mandatory;
-    height: 100dvh;
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-  }
-  
-  .snap-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+    width: 100%;
+    position: relative;
   }
   
   .snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     min-height: 100dvh;
     width: 100%;
     position: relative;
@@ -108,5 +100,5 @@
 }
 
 body {
-  @apply bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container overflow-hidden;
+  @apply bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container;
 }

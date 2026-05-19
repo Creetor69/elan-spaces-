@@ -1,66 +1,47 @@
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
-export function Booking() {
-  return (
-    <section className="snap-section bg-surface flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-blue-100" id="booking">
-      <div className="max-w-container-max mx-auto h-full flex flex-col md:flex-row items-center py-12 md:py-20 w-full gap-8 lg:gap-20">
-        <div className="flex-1 text-center md:text-left">
-           <motion.div
-             initial={{ opacity: 0, x: -30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-           >
-             <span className="font-accent text-base md:text-lg text-primary mb-2 block">Connection</span>
-             <h2 className="font-display text-4xl lg:text-7xl text-on-surface mb-6 leading-tight lowercase tracking-tighter">begin your <br /><span className="text-primary italic">transformation</span></h2>
-             <p className="font-body text-sm md:text-base text-tertiary max-w-md leading-relaxed hidden md:block">
-               Our designers are ready to translate your soul's vision into a physical sanctuary. 
-               Experience the Elan difference.
-             </p>
-           </motion.div>
-        </div>
+interface BookingSectionProps {
+  onOpenBooking: () => void;
+}
 
-        <div className="flex-1 w-full max-w-xl relative">
-            <motion.form 
-             initial={{ opacity: 0, x: 30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             className="glass-panel p-5 md:p-10 rounded-[2rem] space-y-4 md:space-y-6 border border-blue-200/30 bg-white/60 backdrop-blur-xl"
-            >
-               <div className="absolute inset-0 z-0 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Zen" />
-               </div>
-               <div className="relative z-10 space-y-3 md:space-y-5">
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
-                   <div>
-                     <label className="font-body text-[9px] uppercase tracking-widest text-blue-900 mb-1 block font-bold">Full Name</label>
-                     <input type="text" className="w-full bg-white/80 border border-blue-200/50 rounded-lg p-3 md:p-4 text-xs focus:outline-none focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 placeholder:text-blue-900/40" placeholder="Your name" />
-                   </div>
-                   <div>
-                     <label className="font-body text-[9px] uppercase tracking-widest text-blue-900 mb-1 block font-bold">Email Address</label>
-                     <input type="email" className="w-full bg-white/80 border border-blue-200/50 rounded-lg p-3 md:p-4 text-xs focus:outline-none focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 placeholder:text-blue-900/40" placeholder="Email" />
-                   </div>
-                 </div>
-                 <div>
-                   <label className="font-body text-[9px] uppercase tracking-widest text-blue-900 mb-1 block font-bold">Project Type</label>
-                   <div className="relative">
-                    <select className="w-full bg-white/80 border border-blue-200/50 rounded-lg p-3 md:p-4 text-xs appearance-none text-blue-950 cursor-pointer">
-                      <option className="bg-white text-blue-900">Residential Sanctuary</option>
-                      <option className="bg-white text-blue-900">Commercial Spa</option>
-                      <option className="bg-white text-blue-900">Technical Consultation</option>
-                    </select>
-                   </div>
-                 </div>
-                 <div>
-                   <label className="font-body text-[9px] uppercase tracking-widest text-blue-900 mb-1 block font-bold">Your Soul's Vision</label>
-                   <textarea className="w-full bg-white/80 border border-blue-200/50 rounded-lg p-3 md:p-4 text-xs h-20 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-400/40 transition-all font-body resize-none text-blue-950" placeholder="Atmosphere you seek..." />
-                 </div>
-                 <button className="w-full py-3.5 md:py-5 bg-blue-600 text-white font-body font-bold text-[10px] md:text-xs rounded-xl md:rounded-2xl uppercase tracking-[0.2em] hover:bg-blue-700 transition-all duration-500">
-                   Submit for Review
-                 </button>
-               </div>
-            </motion.form>
-        </div>
+export function Booking({ onOpenBooking }: BookingSectionProps) {
+  return (
+    <section className="snap-section bg-blue-950 flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-white/10 py-20" id="booking">
+      <div className="max-w-container-max mx-auto w-full text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <span className="font-accent text-lg md:text-xl text-primary mb-2 block">Direct Connection</span>
+          <h2 className="font-display text-4xl lg:text-7xl text-white mb-8 leading-tight lowercase tracking-tighter">
+            begin your <span className="text-primary italic">transformation</span> <br className="hidden md:block" /> today
+          </h2>
+          <p className="font-body text-sm md:text-lg text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+            From technical consultation to white-glove implementation, our designers are ready to translate your soul's vision into a physical sanctuary. 
+          </p>
+          
+          <button 
+            onClick={onOpenBooking}
+            className="group relative inline-flex items-center gap-4 bg-primary text-white font-body font-bold text-xs md:text-sm px-10 md:px-16 py-5 md:py-6 rounded-2xl uppercase tracking-widest hover:bg-white hover:text-blue-950 transition-all duration-500 shadow-2xl overflow-hidden scale-110 md:scale-125"
+          >
+            <span className="relative z-10">Book Site Visit</span>
+            <div className="w-2 h-2 bg-white rounded-full group-hover:bg-blue-950 animate-pulse" />
+          </button>
+          
+          <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 opacity-50">
+             <div className="flex items-center gap-3">
+               <Phone className="w-5 h-5 text-primary" />
+               <span className="text-white font-mono text-[10px] tracking-widest uppercase">+91 12345 67890</span>
+             </div>
+             <div className="flex items-center gap-3">
+               <Mail className="w-5 h-5 text-primary" />
+               <span className="text-white font-mono text-[10px] tracking-widest uppercase">hello@elanspaces.com</span>
+             </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

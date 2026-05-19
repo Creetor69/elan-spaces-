@@ -36,13 +36,13 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
   );
 
   const NAV_LINKS = [
-    { name: "About Us", href: "#about" },
+    { name: "About", href: "#about" },
+    { name: "Packages", href: "#pricing" },
     { name: "Atmosphere", href: "#transformations" },
-    { name: "How It Works", href: "#atelier" },
-    { name: "Trusted Clients", href: "#clients" },
+    { name: "Process", href: "#atelier" },
+    { name: "Legacy", href: "#legacy" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
-    { name: "Booking", href: "#booking" },
   ];
 
   return (
@@ -83,10 +83,10 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
       <div className="flex items-center gap-2">
         <button 
           onClick={onOpenBooking}
-          className="hidden md:block font-body text-[9px] bg-cyan-400 text-blue-950 px-5 py-2 rounded-full hover:bg-white transition-all duration-500 ease-in-out shadow-xl font-bold uppercase tracking-widest"
+          className="hidden md:block font-body text-[9px] bg-cyan-400 text-blue-950 px-6 py-2.5 rounded-full hover:bg-white transition-all duration-500 ease-in-out shadow-xl font-bold uppercase tracking-widest"
           id="nav-inquire-btn"
         >
-          Begin
+          Book Site Visit
         </button>
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -119,9 +119,9 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
               setIsMenuOpen(false);
               onOpenBooking();
             }}
-            className="mt-3 bg-white text-blue-600 py-3 rounded-xl font-bold uppercase tracking-widest text-[9px] shadow-lg text-center"
+            className="mt-3 bg-white text-blue-600 py-4 rounded-xl font-bold uppercase tracking-widest text-[9px] shadow-lg text-center"
           >
-            Begin Journey
+            Book Site Visit
           </button>
         </motion.div>
       )}

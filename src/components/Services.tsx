@@ -8,9 +8,13 @@ const SERVICES = [
   { id: "05", title: "Organic Flow", desc: "Custom-carved natural stone basins and integrated waterfall systems.", image: "https://images.unsplash.com/photo-1554188248-986adbb73be4?auto=format&fit=crop&q=80&w=600" },
 ];
 
-export function Services() {
+interface ServicesProps {
+  onOpenBooking: () => void;
+}
+
+export function Services({ onOpenBooking }: ServicesProps) {
   return (
-    <section className="snap-section bg-background flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+    <section className="snap-section bg-background flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden" id="services">
       <div className="max-w-container-max mx-auto w-full scale-95 md:scale-90">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
@@ -49,8 +53,11 @@ export function Services() {
                   </p>
                 </div>
                 <div className="pt-4">
-                  <button className="text-[9px] uppercase tracking-widest font-semibold text-white border-b border-white/40 pb-0.5 hover:border-white transition-colors">
-                    Discover Details
+                  <button 
+                    onClick={onOpenBooking}
+                    className="text-[9px] uppercase tracking-widest font-semibold text-white border-b border-white/40 pb-0.5 hover:border-white transition-colors"
+                  >
+                    Book Site Visit
                   </button>
                 </div>
               </div>

@@ -2,62 +2,78 @@ import { motion } from "motion/react";
 
 const STEPS = [
   { 
-    title: "Discovery Call", 
-    desc: "We align your vision with our technical expertise to find your sanctuary's soul.",
-    image: "https://images.unsplash.com/photo-1544450172-23f2ec80bc2f?auto=format&fit=crop&q=80&w=800"
+    title: "Site Visit", 
+    desc: "Our experts visit your Bengaluru home for technical assessment and measurements.",
+    icon: "01"
   },
   { 
-    title: "The Workshop", 
-    desc: "Collaborative 3D design phase where materials and light orchestration are born.",
-    image: "https://images.unsplash.com/photo-1510519133418-66a36bc4781d?auto=format&fit=crop&q=80&w=800"
+    title: "Design Studio", 
+    desc: "We curate material boards and 3D renders based on your soul's vision.",
+    icon: "02"
   },
   { 
-    title: "Transformation", 
-    desc: "White-glove implementation by master artisans, respecting your home's peace.",
-    image: "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800"
+    title: "Approval", 
+    desc: "Detailed quotation and timeline finalization for a seamless experience.",
+    icon: "03"
+  },
+  { 
+    title: "Execution", 
+    desc: "Master artisans execute civil, plumbing, and electrical works with precision.",
+    icon: "04"
+  },
+  { 
+    title: "Handover", 
+    desc: "Deep cleaning and final walkthrough of your new sanctuary.",
+    icon: "05"
   }
 ];
 
 export function Atelier() {
   return (
-    <section className="snap-section bg-background flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
-      <div className="max-w-container-max mx-auto h-full flex flex-col justify-center w-full scale-90 md:scale-85 lg:scale-80">
+    <section className="bg-white py-20 px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-blue-50" id="atelier">
+      <div className="max-w-container-max mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="text-center mb-8 md:mb-12"
+           className="text-center mb-16 md:mb-24"
         >
-          <span className="font-accent text-lg md:text-xl text-primary mb-1 block">Process</span>
-          <h2 className="font-display text-3xl md:text-5xl text-on-surface">How It Works</h2>
+          <span className="font-accent text-lg md:text-xl text-primary mb-2 block">Our Process</span>
+          <h2 className="font-display text-3xl md:text-5xl text-blue-950 lowercase tracking-tighter">from <span className="text-primary italic">vision</span> to reality</h2>
+          <p className="mt-4 font-body text-xs md:text-sm text-tertiary max-w-xl mx-auto uppercase tracking-widest">A simple 5-step journey to your sanctuary</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {STEPS.map((step, idx) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.2, duration: 1, ease: [0.23, 1, 0.32, 1] }}
-              viewport={{ once: true }}
-              className="group relative h-[400px] md:h-[450px] rounded-xl overflow-hidden shadow-2xl"
-            >
-              <img 
-                src={step.image} 
-                alt={step.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="font-mono text-[10px] text-white/50 mb-2 block tracking-widest">PHASE {idx + 1}</span>
-                <h3 className="font-display text-2xl text-white mb-3">{step.title}</h3>
-                <p className="font-body text-xs text-white/70 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+        <div className="relative">
+          {/* Vertical/Horizontal Line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-blue-100 -translate-y-1/2 z-0" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+            {STEPS.map((step, idx) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.8 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center group"
+              >
+                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-blue-100">
+                  <span className="font-display text-xl font-bold">{step.icon}</span>
+                </div>
+                <h3 className="font-accent text-xl text-blue-950 mb-3">{step.title}</h3>
+                <p className="font-body text-[10px] md:text-xs text-tertiary leading-relaxed px-4">
                   {step.desc}
                 </p>
-              </div>
-            </motion.div>
-          ))}
+                
+                {/* Arrow for mobile/md */}
+                {idx < STEPS.length - 1 && (
+                  <div className="lg:hidden mt-8 text-blue-100">
+                    <div className="w-px h-8 bg-current mx-auto" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -98,14 +98,11 @@ export function Hero({ onOpenBooking }: HeroProps) {
               className="flex flex-col gap-6"
             >
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <button className="bg-primary text-on-primary font-body font-semibold text-[9px] md:text-xs px-5 md:px-8 py-2.5 md:py-3.5 rounded-full uppercase tracking-widest hover:bg-on-primary-fixed transition-all duration-500 ease-in-out shadow-lg">
-                  Explore Portfolio
-                </button>
                 <button 
                   onClick={onOpenBooking}
-                  className="bg-white text-primary border border-primary/20 font-body font-semibold text-[9px] md:text-xs px-5 md:px-8 py-2.5 md:py-3.5 rounded-full uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-500 ease-in-out shadow-lg"
+                  className="bg-primary text-on-primary font-body font-semibold text-[9px] md:text-xs px-10 md:px-14 py-3 md:py-4 rounded-full uppercase tracking-widest hover:bg-on-primary-fixed transition-all duration-500 ease-in-out shadow-lg"
                 >
-                  Book Now
+                  Book Site Visit
                 </button>
               </div>
             </motion.div>

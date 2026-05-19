@@ -6,11 +6,11 @@ import { About } from "./components/About";
 import { Services } from "./components/Services";
 import { Transformations } from "./components/Transformations";
 import { Atelier } from "./components/Atelier";
-import { Materials } from "./components/Materials";
 import { Pricing } from "./components/Pricing";
 import { FAQ } from "./components/FAQ";
 import { Testimonials } from "./components/Testimonials";
 import { Clients } from "./components/Clients";
+import { Legacy } from "./components/Legacy";
 import { Booking } from "./components/Booking";
 import { Footer } from "./components/Footer";
 import { BookingModal } from "./components/BookingModal";
@@ -34,15 +34,15 @@ export default function App() {
         <div id="home"><Hero onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <Stats />
         <div id="about"><About /></div>
-        <div id="services"><Services /></div>
+        <div id="services"><Services onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <div id="transformations"><Transformations /></div>
         <div id="atelier"><Atelier /></div>
-        <div id="materials"><Materials /></div>
+        <div id="legacy"><Legacy /></div>
         <div id="pricing"><Pricing onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <div id="faq"><FAQ /></div>
         <div id="clients"><Clients /></div>
         <div id="testimonials"><Testimonials /></div>
-        <div id="booking"><Booking /></div>
+        <div id="booking"><Booking onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <Footer />
       </main>
       <FloatingActions />

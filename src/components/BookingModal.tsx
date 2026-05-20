@@ -37,7 +37,7 @@ Planning to Start: ${formData.startDate}
 Vision/Notes: ${formData.vision}`;
     
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/911234567890?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/919731175911?text=${encodedMessage}`, "_blank");
     onClose();
   };
 
@@ -133,9 +133,10 @@ Vision/Notes: ${formData.vision}`;
                       className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none appearance-none"
                     >
                       <option value="None">Help me choose</option>
-                      <option value="Nova">Nova (Standard - Cera)</option>
-                      <option value="Abetti">Abetti (Popular - Jaquar)</option>
-                      <option value="Signature">Signature (Luxury - Grohe)</option>
+                      <option value="Essential">Essential (Standard - Cera)</option>
+                      <option value="Premium">Premium (Popular - Jaquar)</option>
+                      <option value="Elite">Elite (Luxury - Grohe)</option>
+                      <option value="Imperial">Imperial (Ultra Luxury - Kohler & Jacuzzi)</option>
                     </select>
                   </motion.div>
                 )}

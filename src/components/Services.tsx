@@ -60,6 +60,25 @@ const TIERS = [
     ], 
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=400" 
   },
+  { 
+    name: "Imperial", 
+    price: "₹3,50,000+", 
+    subtitle: "+ GST | Ultimate Luxury Package",
+    brand: "Fixtures: Kohler & Toto*",
+    features: [
+      "Everything in Elite plus:",
+      "Freestanding Acrylic Designer Bathtub",
+      "Advanced Multi-Jets Hydrotherapy Jacuzzi",
+      "Very Advanced Multi-Zone Custom Plumbing",
+      "High-Flow Booster Drainage Systems",
+      "Thermostatic Intelligent Temp Controllers",
+      "Imported Italian Marble Accent Wall",
+      "Smart Mirror with Demister & Bluetooth",
+      "Concealed Whisper-Quiet In-wall Tank",
+      "10-Year Craftsmanship Guarantee"
+    ], 
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=400" 
+  },
 ];
 
 interface ServicesProps {
@@ -81,7 +100,7 @@ export function Services({ onOpenBooking }: ServicesProps) {
           <p className="mt-4 font-body text-xs text-tertiary max-w-lg mx-auto uppercase tracking-widest leading-loose">Premium finishes. Fixed quotes. Zero surprises. <br /> Kitchen renovations start from ₹1 Lakh.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TIERS.map((tier, idx) => (
             <motion.div
               key={tier.name}

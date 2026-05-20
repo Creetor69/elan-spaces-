@@ -34,7 +34,7 @@ export function Booking({ onOpenBooking }: BookingSectionProps) {
           <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 opacity-50">
              <div className="flex items-center gap-3">
                <Phone className="w-5 h-5 text-primary" />
-               <span className="text-white font-mono text-[10px] tracking-widest uppercase">+91 12345 67890</span>
+               <span className="text-white font-mono text-[10px] tracking-widest uppercase">+91 97311 75911</span>
              </div>
              <div className="flex items-center gap-3">
                <Mail className="w-5 h-5 text-primary" />

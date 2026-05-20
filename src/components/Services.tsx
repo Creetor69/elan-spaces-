@@ -67,7 +67,6 @@ const TIERS = [
     brand: "Fixtures: Kohler & Toto*",
     features: [
       "Everything in Elite plus:",
-      "Freestanding Acrylic Designer Bathtub",
       "Advanced Multi-Jets Hydrotherapy Jacuzzi",
       "Very Advanced Multi-Zone Custom Plumbing",
       "High-Flow Booster Drainage Systems",
@@ -100,7 +99,8 @@ export function Services({ onOpenBooking }: ServicesProps) {
           <p className="mt-4 font-body text-xs text-tertiary max-w-lg mx-auto uppercase tracking-widest leading-loose">Premium finishes. Fixed quotes. Zero surprises. <br /> Kitchen renovations start from ₹1 Lakh.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Scrollable Container with horizontal swipe/scroll */}
+        <div className="flex gap-6 overflow-x-auto pb-8 pt-4 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:-mx-12 md:px-12 scroll-smooth">
           {TIERS.map((tier, idx) => (
             <motion.div
               key={tier.name}
@@ -108,7 +108,7 @@ export function Services({ onOpenBooking }: ServicesProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.8 }}
               viewport={{ once: true }}
-              className={`relative rounded-3xl p-8 flex flex-col group overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white ${tier.popular ? "ring-2 ring-primary/50" : "border border-blue-100"}`}
+              className={`relative rounded-3xl p-8 flex flex-col group overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white shrink-0 w-[290px] sm:w-[325px] md:w-[350px] lg:w-[380px] snap-center ${tier.popular ? "ring-2 ring-primary/50" : "border border-blue-100"}`}
             >
               {tier.popular && (
                 <div className="absolute top-4 right-4 z-20">
@@ -145,6 +145,13 @@ export function Services({ onOpenBooking }: ServicesProps) {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Swipe indicator */}
+        <div className="flex justify-center items-center gap-2 mt-4 text-primary/40 text-[9px] font-mono tracking-widest uppercase select-none">
+          <span className="animate-pulse">←</span> 
+          <span>Swipe or Scroll horizontally to explore all packages</span>
+          <span className="animate-pulse">→</span>
         </div>
       </div>
     </section>

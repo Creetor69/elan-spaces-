@@ -2,7 +2,13 @@ export function Footer() {
   return (
     <footer className="snap-section relative bg-background flex items-center justify-center pt-12 px-6 md:px-margin-desktop pb-12 z-10">
       <div className="max-w-container-max mx-auto flex flex-col items-center gap-8 w-full">
-        <div className="text-center">
+        <div className="text-center flex flex-col items-center">
+          <img 
+            src="https://i.ibb.co/wNyP8dSZ/only-icon.png" 
+            alt="Elan Spaces Logo" 
+            className="w-14 h-14 md:w-20 md:h-20 object-contain mb-4"
+            referrerPolicy="no-referrer"
+          />
           <h4 className="font-display text-4xl md:text-6xl text-primary mb-4">Elan Spaces</h4>
           <p className="font-body text-sm md:text-base text-tertiary">
             Architecture for the Soul. Bengaluru, India.

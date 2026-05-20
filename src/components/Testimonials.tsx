@@ -1,10 +1,12 @@
 import { motion } from "motion/react";
 
 const REVIEWS = [
-  { text: "Beyond luxury. It's an emotional recalibration every single morning. The 30-day timeline was met with precision in Indiranagar.", author: "Rajeshwari S., Indiranagar" },
-  { text: "The light orchestration is sheer genius. My spa is my sanctuary. Their 25 years of experience truly shows in the finish.", author: "Venkatesh K., Jayanagar" },
-  { text: "Pure excellence from design to the final white-glove setup. Best bathroom renovation team in Bengaluru.", author: "Lakshmi N., Sadashivnagar" },
-  { text: "Elan Spaces turned my outdated bathroom into an organic masterpiece in exactly 30 days. Remarkable commitment.", author: "Karthik R., Whitefield" }
+  { text: "The complete home transformation of our villa in HSR Layout was executed flawlessly. They redesigned our entire living, civil structures, and bedrooms. Truly Bengaluru's elite renovation team.", author: "Anand R., HSR Layout (Complete Home)" },
+  { text: "Our gourmet kitchen in Koramangala is now a hub of beauty and functionality. From premium quartz countertops to soft-close cabinets under our exact budget—absolutely stellar job!", author: "Meera & Dev, Koramangala (Kitchen)" },
+  { text: "Beyond luxury. It's an emotional recalibration every single morning. The 30-day timeline was met with absolute civil precision in Indiranagar.", author: "Rajeshwari S., Indiranagar (Bathroom)" },
+  { text: "The light orchestration is sheer genius. My spa is my sanctuary. The legacy team from Dream Designs truly shows their 25+ years expertise in the final finish.", author: "Venkatesh K., Jayanagar (Bathroom)" },
+  { text: "Pure excellence from design to the final white-glove setup. Best renovation and interior crew in Sadashivnagar.", author: "Lakshmi N., Sadashivnagar (Home Reno)" },
+  { text: "Elan Spaces turned our outdated kitchen and bathrooms into premium organic sanctuaries under 40 days. Fixed quotation, zero hassle, beautiful outcomes.", author: "Karthik R., Whitefield (Full Reno)" }
 ];
 
 export function Testimonials() {
@@ -21,7 +23,7 @@ export function Testimonials() {
           <h2 className="font-display text-4xl md:text-6xl text-on-surface leading-tight lowercase tracking-tighter">what our <span className="text-primary italic">customers</span> say</h2>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {REVIEWS.map((review, idx) => (
             <motion.div 
               key={idx}

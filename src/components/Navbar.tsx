@@ -60,11 +60,17 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
     >
       <motion.a 
         style={{ color: navTextColor }}
-        className="font-display text-sm md:text-xl tracking-tighter font-bold hover:opacity-80 transition-all duration-500 ease-in-out shrink-0" 
+        className="font-display text-sm md:text-xl tracking-tighter font-bold hover:opacity-80 transition-all duration-500 ease-in-out shrink-0 flex items-center gap-2 md:gap-3" 
         href="#home"
         id="nav-logo"
       >
-        Elan Spaces
+        <img 
+          src="https://i.ibb.co/wNyP8dSZ/only-icon.png" 
+          alt="Elan Spaces Logo" 
+          className="w-6 h-6 md:w-8 md:h-8 object-contain"
+          referrerPolicy="no-referrer"
+        />
+        <span>Elan Spaces</span>
       </motion.a>
       
       <div className="hidden lg:flex items-center gap-1 xl:gap-2">

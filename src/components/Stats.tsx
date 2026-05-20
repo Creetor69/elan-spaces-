@@ -1,24 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform, useInView } from "motion/react";
-import { useEffect, useRef } from "react";
-
-function Counter({ value }: { value: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 100,
-  });
-  const displayValue = useTransform(springValue, (latest) => Math.round(latest));
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [motionValue, isInView, value]);
-
-  return <motion.span ref={ref}>{displayValue}</motion.span>;
-}
+import { motion } from "motion/react";
 
 export function Stats() {
   const stats = [
@@ -46,7 +26,7 @@ export function Stats() {
             className="flex flex-col items-center text-center"
           >
             <div className="font-display text-4xl md:text-6xl text-primary font-bold mb-2 flex items-baseline">
-              <Counter value={stat.value} />
+              <span>{stat.value}</span>
               <span className="text-2xl md:text-3xl ml-1">{stat.suffix}</span>
             </div>
             <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-tertiary">

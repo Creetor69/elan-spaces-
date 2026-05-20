@@ -6,7 +6,6 @@ import { About } from "./components/About";
 import { Services } from "./components/Services";
 import { Transformations } from "./components/Transformations";
 import { Atelier } from "./components/Atelier";
-import { Pricing } from "./components/Pricing";
 import { FAQ } from "./components/FAQ";
 import { Testimonials } from "./components/Testimonials";
 import { Clients } from "./components/Clients";
@@ -38,7 +37,6 @@ export default function App() {
         <div id="transformations"><Transformations /></div>
         <div id="atelier"><Atelier /></div>
         <div id="legacy"><Legacy /></div>
-        <div id="pricing"><Pricing onOpenBooking={() => setIsBookingOpen(true)} /></div>
         <div id="faq"><FAQ /></div>
         <div id="clients"><Clients /></div>
         <div id="testimonials"><Testimonials /></div>

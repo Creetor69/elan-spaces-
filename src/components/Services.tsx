@@ -1,11 +1,65 @@
 import { motion } from "motion/react";
+import { Check } from "lucide-react";
 
-const SERVICES = [
-  { id: "01", title: "The Zen Suite", desc: "A minimalist sanctuary focusing on wood, stone, and natural light.", image: "https://images.unsplash.com/photo-1620626011761-9963d7b69763?auto=format&fit=crop&q=80&w=600" },
-  { id: "02", title: "Modern Heritage", desc: "Classic luxury materials met with state-of-the-art smart home tech.", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&q=80&w=600" },
-  { id: "03", title: "Luminous Oasis", desc: "Advanced lighting choreography that adjusts to your circadian rhythm.", image: "https://images.unsplash.com/photo-1507652313519-d45101a056df?auto=format&fit=crop&q=80&w=600" },
-  { id: "04", title: "Technical Spa", desc: "High-performance hydrotherapy and invisible thermal controls.", image: "https://images.unsplash.com/photo-1542013936693-884638324262?auto=format&fit=crop&q=80&w=600" },
-  { id: "05", title: "Organic Flow", desc: "Custom-carved natural stone basins and integrated waterfall systems.", image: "https://images.unsplash.com/photo-1554188248-986adbb73be4?auto=format&fit=crop&q=80&w=600" },
+const TIERS = [
+  { 
+    name: "Essential", 
+    price: "₹1,31,548", 
+    subtitle: "+ GST | Starting Price for 4' x 7'",
+    brand: "Fixtures: Cera*",
+    features: [
+      "Floor Guarding & Demolition",
+      "Wall Plastering & Floor leveling",
+      "Ledge wall (1000x200x1200mm)",
+      "High-Grade Waterproofing",
+      "New Plumbing lines & Fixture Install",
+      "Ceramic Premium Somany Tiles (8' H)",
+      "Basin counter Granite (40mm)",
+      "Cera: Wall Diverter, Shower, Basin mixer",
+      "Full frame cistern & Flush plate",
+      "Debris removal & Deep cleaning"
+    ], 
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&q=80&w=400" 
+  },
+  { 
+    name: "Premium", 
+    price: "₹1,59,745", 
+    popular: true,
+    subtitle: "+ GST | Starting Price for 4' x 7'",
+    brand: "Fixtures: Jaquar*",
+    features: [
+      "Everything in Essential plus:",
+      "Jaquar Premium Series Fitting",
+      "Wall Diverter (Exposed/Concealed)",
+      "Multi-flow Shower head & spout",
+      "EWC ledge wall granite (20mm)",
+      "Jaquar Basin & Basin mixer",
+      "Connection pipes & Angle valves",
+      "Health faucet & Flush plate",
+      "Removal of electrical fittings",
+      "Kitchen Reno starts @ 1L"
+    ], 
+    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400" 
+  },
+  { 
+    name: "Elite", 
+    price: "₹2,09,842", 
+    subtitle: "+ GST | Starting Price for 4' x 7'",
+    brand: "Fixtures: Grohe*",
+    features: [
+      "Everything in Premium plus:",
+      "Elite Grohe/Toto Integration",
+      "Designer somany wall tiles",
+      "Precision PCC & Tile laying",
+      "German-Engineered Diverters",
+      "Luxury Hand shower with rail",
+      "Premium Granite Finishes",
+      "Advanced Plumbing Layout",
+      "Deep cleaning & Site ready",
+      "Limited Lifetime Craftsmanship"
+    ], 
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=400" 
+  },
 ];
 
 interface ServicesProps {
@@ -14,52 +68,61 @@ interface ServicesProps {
 
 export function Services({ onOpenBooking }: ServicesProps) {
   return (
-    <section className="snap-section bg-background flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden" id="services">
-      <div className="max-w-container-max mx-auto w-full scale-95 md:scale-90">
+    <section className="bg-white py-20 md:py-32 px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-blue-50" id="services">
+      <div className="max-w-container-max mx-auto w-full">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="mb-6 md:mb-10 text-center md:text-left"
+           className="mb-16 md:mb-24 text-center"
         >
-          <span className="font-accent text-base md:text-lg text-primary mb-1 block">Collections</span>
-          <h2 className="font-display text-2xl md:text-4xl text-on-surface">Curated Bathroom Packages</h2>
+          <span className="font-accent text-base md:text-lg text-primary mb-1 block">Renovation Packages</span>
+          <h2 className="font-display text-4xl md:text-6xl text-blue-950 lowercase tracking-tighter">transparent <span className="text-primary italic font-accent">pricing</span> for your home</h2>
+          <p className="mt-4 font-body text-xs text-tertiary max-w-lg mx-auto uppercase tracking-widest leading-loose">Premium finishes. Fixed quotes. Zero surprises. <br /> Kitchen renovations start from ₹1 Lakh.</p>
         </motion.div>
 
-        {/* Scrollable Container */}
-        <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide no-scrollbar">
-          {SERVICES.map((service, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {TIERS.map((tier, idx) => (
             <motion.div
-              key={service.id}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={tier.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.8 }}
               viewport={{ once: true }}
-              className="min-w-[240px] md:min-w-[280px] lg:min-w-[320px] snap-center relative group rounded-xl overflow-hidden h-[280px] md:h-[350px] shadow-xl"
+              className={`relative rounded-3xl p-8 flex flex-col group overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white ${tier.popular ? "ring-2 ring-primary/50" : "border border-blue-100"}`}
             >
-              <img 
-                src={service.image} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                alt={service.title} 
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+              {tier.popular && (
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="bg-primary text-on-primary text-[8px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">Most Popular</span>
+                </div>
+              )}
               
-              <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                <div>
-                  <span className="font-mono text-[10px] text-white/60 mb-2 block">{service.id}</span>
-                  <h3 className="font-display text-lg md:text-xl text-white mb-2 leading-tight">{service.title}</h3>
-                  <p className="font-body text-[11px] text-white/80 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    {service.desc}
-                  </p>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="mb-6">
+                  <h3 className="font-accent text-3xl text-blue-950 mb-1">{tier.name}</h3>
+                  <div className="flex items-baseline gap-2">
+                    <p className="font-display text-2xl text-primary font-bold">{tier.price}</p>
+                    <span className="font-body text-[9px] text-tertiary uppercase tracking-widest">{tier.subtitle}</span>
+                  </div>
+                  <p className="font-mono text-[9px] text-primary uppercase tracking-[0.2em] font-bold mt-2">{tier.brand}</p>
                 </div>
-                <div className="pt-4">
-                  <button 
-                    onClick={onOpenBooking}
-                    className="text-[9px] uppercase tracking-widest font-semibold text-white border-b border-white/40 pb-0.5 hover:border-white transition-colors"
-                  >
-                    Book Site Visit
-                  </button>
-                </div>
+
+                <ul className="space-y-3 mb-10 flex-grow">
+                  {tier.features.map(f => (
+                    <li key={f} className="flex items-start gap-3 text-[10px] md:text-[11px] text-blue-900/70 border-b border-blue-50 pb-2 last:border-0 font-body">
+                      <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <button 
+                  onClick={onOpenBooking}
+                  className="w-full py-4 rounded-2xl bg-blue-950 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all duration-500 shadow-xl"
+                >
+                  Book Site Visit
+                </button>
+                <p className="text-[7px] text-center text-tertiary uppercase tracking-widest mt-4 leading-relaxed">*Package includes select fixtures; final pricing may vary based on selections.</p>
               </div>
             </motion.div>
           ))}

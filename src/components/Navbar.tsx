@@ -20,19 +20,19 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
   const navBackground = useTransform(
     scrollY,
     [0, 80],
-    ["rgba(215, 240, 255, 0.4)", "rgba(0, 60, 140, 0.98)"]
+    ["rgba(215, 240, 255, 0.4)", "rgba(181, 226, 250, 0.94)"]
   );
 
   const navBorder = useTransform(
     scrollY,
     [0, 80],
-    ["rgba(255, 255, 255, 0.5)", "rgba(34, 211, 238, 0.6)"]
+    ["rgba(255, 255, 255, 0.5)", "rgba(14, 165, 233, 0.35)"]
   );
 
   const navTextColor = useTransform(
     scrollY,
     [0, 80],
-    ["#003366", "#ffffff"]
+    ["#003366", "#002855"]
   );
 
   const NAV_LINKS = [
@@ -54,8 +54,8 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
         backgroundColor: navBackground,
         borderColor: navBorder,
       }}
-      className={`fixed top-2 md:top-4 left-0 right-0 z-50 flex justify-between items-center px-4 md:px-8 py-2 md:py-3 backdrop-blur-3xl rounded-full mx-auto w-[98%] max-w-container-max border shadow-[0_10px_40px_rgba(0,120,255,0.3)] transition-all duration-500 md:scale-95 lg:scale-90 ${
-        scrolled ? "bg-gradient-to-r from-blue-900/80 via-cyan-900/60 to-blue-800/80 border-cyan-400/40" : ""
+      className={`fixed top-2 md:top-4 left-0 right-0 z-50 flex justify-between items-center px-4 md:px-8 py-2 md:py-3 backdrop-blur-3xl rounded-full mx-auto w-[98%] max-w-container-max border transition-all duration-500 md:scale-95 lg:scale-90 ${
+        scrolled ? "shadow-[0_12px_45px_rgba(14,165,233,0.25)] border-sky-300/40" : "shadow-[0_10px_40px_rgba(0,120,255,0.12)] border-white/20"
       }`}
     >
       <motion.a 
@@ -65,9 +65,9 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
         id="nav-logo"
       >
         <img 
-          src="https://i.ibb.co/wNyP8dSZ/only-icon.png" 
+          src="https://i.ibb.co/fYpkJcgR/only-icon-no-bg.png" 
           alt="Elan Spaces Logo" 
-          className="w-6 h-6 md:w-8 md:h-8 object-contain"
+          className="w-9 h-9 md:w-12 md:h-12 object-contain"
           referrerPolicy="no-referrer"
         />
         <span>Elan Spaces</span>
@@ -108,13 +108,13 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-14 left-0 right-0 mt-2 mx-auto w-[94%] rounded-3xl p-5 lg:hidden flex flex-col gap-2 z-[90] border border-cyan-400/30 shadow-[0_20px_40px_rgba(0,80,180,0.3)] bg-blue-500/95 backdrop-blur-3xl ring-1 ring-white/10"
+          className="absolute top-14 left-0 right-0 mt-2 mx-auto w-[94%] rounded-3xl p-5 lg:hidden flex flex-col gap-2 z-[90] border border-cyan-300/40 shadow-[0_20px_45px_rgba(14,165,233,0.18)] bg-sky-50/95 backdrop-blur-3xl ring-1 ring-white/20"
         >
           {NAV_LINKS.map((link) => (
             <a 
               key={link.name}
               onClick={() => setIsMenuOpen(false)}
-              className="text-[12px] uppercase font-mono font-bold tracking-[0.2em] text-white hover:text-cyan-100 transition-colors py-3.5 border-b border-white/10" 
+              className="text-[12px] uppercase font-mono font-bold tracking-[0.2em] text-blue-950 hover:text-primary transition-colors py-3.5 border-b border-blue-100/55" 
               href={link.href}
             >
               {link.name}
@@ -125,7 +125,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
               setIsMenuOpen(false);
               onOpenBooking();
             }}
-            className="mt-3 bg-white text-blue-600 py-4 rounded-xl font-bold uppercase tracking-widest text-[9px] shadow-lg text-center"
+            className="mt-3 bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest text-[9px] shadow-lg text-center hover:bg-blue-950 transition-colors"
           >
             Book Site Visit
           </button>

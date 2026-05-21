@@ -4,9 +4,9 @@ export function Footer() {
       <div className="max-w-container-max mx-auto flex flex-col items-center gap-8 w-full">
         <div className="text-center flex flex-col items-center">
           <img 
-            src="https://i.ibb.co/wNyP8dSZ/only-icon.png" 
+            src="https://i.ibb.co/fYpkJcgR/only-icon-no-bg.png" 
             alt="Elan Spaces Logo" 
-            className="w-14 h-14 md:w-20 md:h-20 object-contain mb-4"
+            className="w-[84px] h-[84px] md:w-[120px] md:h-[120px] object-contain mb-4"
             referrerPolicy="no-referrer"
           />
           <h4 className="font-display text-4xl md:text-6xl text-primary mb-4">Elan Spaces</h4>

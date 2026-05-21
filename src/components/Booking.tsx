@@ -31,14 +31,22 @@ export function Booking({ onOpenBooking }: BookingSectionProps) {
             <div className="w-2 h-2 bg-white rounded-full group-hover:bg-blue-950 animate-pulse" />
           </button>
           
-          <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 opacity-50">
+          <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-12 opacity-75 max-w-4xl mx-auto">
              <div className="flex items-center gap-3">
-               <Phone className="w-5 h-5 text-primary" />
+               <Phone className="w-4 h-4 text-primary shrink-0" />
                <span className="text-white font-mono text-[10px] tracking-widest uppercase">+91 97311 75911</span>
              </div>
              <div className="flex items-center gap-3">
-               <Mail className="w-5 h-5 text-primary" />
-               <span className="text-white font-mono text-[10px] tracking-widest uppercase">hello@elanspaces.com</span>
+               <Mail className="w-4 h-4 text-primary shrink-0" />
+               <a href="mailto:elanspacesblr@gmail.com" className="text-white font-mono text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                 elanspacesblr@gmail.com
+               </a>
+             </div>
+             <div className="flex items-center gap-3 max-w-sm text-center">
+               <MapPin className="w-4 h-4 text-primary shrink-0" />
+               <span className="text-white font-mono text-[10px] tracking-[0.1em] uppercase leading-relaxed">
+                 Sarvagna Circle, 88, 1st Main Rd, AGS Layout, Bengaluru, Karnataka 560061
+               </span>
              </div>
           </div>
         </motion.div>

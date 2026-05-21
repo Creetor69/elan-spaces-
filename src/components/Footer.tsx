@@ -11,8 +11,18 @@ export function Footer() {
           />
           <h4 className="font-display text-4xl md:text-6xl text-primary mb-4">Elan Spaces</h4>
           <p className="font-body text-sm md:text-base text-tertiary">
-            Architecture for the Soul. Bengaluru, India.
+            Architecture for the Soul.
           </p>
+          <div className="mt-3 flex flex-col items-center gap-1.5 text-xs text-on-surface-variant/80">
+            <p className="font-sans font-medium">
+              <a href="mailto:elanspacesblr@gmail.com" className="hover:text-primary transition-colors">elanspacesblr@gmail.com</a>
+              <span className="mx-2 opacity-40">|</span>
+              <a href="tel:+919731175911" className="hover:text-primary transition-colors">+91 97311 75911</a>
+            </p>
+            <p className="font-sans text-stone-500 max-w-md text-center leading-relaxed">
+              Sarvagna Circle, 88, 1st Main Rd, AGS Layout, Bengaluru, Karnataka 560061
+            </p>
+          </div>
         </div>
         <div className="flex flex-wrap justify-center gap-6 md:gap-12">
           <a className="font-body text-sm text-on-surface-variant transition-all duration-300 opacity-60 hover:opacity-100 hover:underline hover:text-primary" href="#">Privacy Portfolio</a>

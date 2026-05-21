@@ -3,9 +3,9 @@ import { Instagram, MessageCircle, Facebook, Linkedin } from "lucide-react";
 
 export function FloatingActions() {
   const whatsappNumber = "919731175911"; // Real WhatsApp contact number
-  const instagramHandle = "elanspaces_blr"; // Example handle
-  const facebookUrl = "https://facebook.com/elanspaces";
-  const linkedinUrl = "https://linkedin.com/company/elanspaces";
+  const facebookUrl = "https://www.facebook.com/profile.php?id=61590353485519";
+  const linkedinUrl = "https://www.linkedin.com/in/elan-spaces-9817ab410/";
+  const instagramUrl = "https://www.instagram.com/elanspaces_blr/";
 
   return (
     <div className="fixed bottom-8 right-8 z-[100] flex flex-col gap-3 items-end">
@@ -35,7 +35,7 @@ export function FloatingActions() {
 
       {/* Instagram Link */}
       <motion.a
-        href={`https://instagram.com/${instagramHandle}`}
+        href={instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1, x: -5 }}

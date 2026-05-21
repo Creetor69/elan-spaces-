@@ -28,9 +28,10 @@ export function Transformations() {
           {/* Before Image */}
           <div className="absolute inset-0 grayscale contrast-125">
             <img 
-              src="/src/assets/images/regenerated_image_1779339501217.png" 
+              src="https://i.ibb.co/Swy8W69x/old.jpg" 
               className="w-full h-full object-cover" 
               alt="Before" 
+              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20" />
           </div>
@@ -41,9 +42,10 @@ export function Transformations() {
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" 
+              src="https://i.ibb.co/4ZjRbJDR/new-batroom.jpg" 
               className="w-full h-full object-cover brightness-110 contrast-110" 
               alt="After" 
+              referrerPolicy="no-referrer"
             />
           </div>
 

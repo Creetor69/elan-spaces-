@@ -28,7 +28,7 @@ export function Transformations() {
           {/* Before Image */}
           <div className="absolute inset-0 grayscale contrast-125">
             <img 
-              src="https://images.unsplash.com/photo-1542013936693-884638324262?auto=format&fit=crop&q=80&w=1200" 
+              src="/src/assets/images/regenerated_image_1779339501217.png" 
               className="w-full h-full object-cover" 
               alt="Before" 
             />

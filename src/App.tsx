@@ -17,34 +17,49 @@ import { FloatingActions } from "./components/FloatingActions";
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [bookingPrefill, setBookingPrefill] = useState<{
+    projectTypes?: string[];
+    package?: string;
+  } | null>(null);
 
-  useEffect(() => {
-    // Show booking form pop up after a short delay for instant CTA
-    const timer = setTimeout(() => {
-      setIsBookingOpen(true);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
+  const handleOpenBooking = (prefill?: { projectTypes?: string[]; package?: string }) => {
+    if (prefill) {
+      setBookingPrefill(prefill);
+    } else {
+      setBookingPrefill(null);
+    }
+    setIsBookingOpen(true);
+  };
 
+  // We let clients explore the visual portfolios in a relaxed manner, keeping the CTAs readily accessible across all sections.
   return (
     <div className="relative overflow-hidden">
-      <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
+      <Navbar onOpenBooking={() => handleOpenBooking()} />
       <main className="snap-container">
-        <div id="home"><Hero onOpenBooking={() => setIsBookingOpen(true)} /></div>
+        <div id="home"><Hero onOpenBooking={() => handleOpenBooking()} /></div>
         <Stats />
         <div id="about"><About /></div>
-        <div id="services"><Services onOpenBooking={() => setIsBookingOpen(true)} /></div>
+        <div id="services">
+          <Services onOpenBooking={(prefill) => handleOpenBooking(prefill)} />
+        </div>
         <div id="transformations"><Transformations /></div>
         <div id="atelier"><Atelier /></div>
         <div id="legacy"><Legacy /></div>
         <div id="faq"><FAQ /></div>
         <div id="clients"><Clients /></div>
         <div id="testimonials"><Testimonials /></div>
-        <div id="booking"><Booking onOpenBooking={() => setIsBookingOpen(true)} /></div>
+        <div id="booking"><Booking onOpenBooking={() => handleOpenBooking()} /></div>
         <Footer />
       </main>
       <FloatingActions />
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => {
+          setIsBookingOpen(false);
+          setBookingPrefill(null);
+        }} 
+        prefill={bookingPrefill}
+      />
     </div>
   );
 }

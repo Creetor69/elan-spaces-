@@ -1,80 +1,87 @@
 import { motion } from "motion/react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Trophy } from "lucide-react";
 
 const CLIENTS = [
   { 
     name: "Adarsh", 
     description: "Adarsh Developers", 
     highlight: true, 
-    tagline: "Premier Estate Developer" 
+    tagline: "Premier High-End Estates & Villas" 
   },
   { 
     name: "Prestige", 
     description: "Prestige Group", 
     highlight: true, 
-    tagline: "Luxury Living Landmark" 
+    tagline: "Ultra-Luxury Living Landmarks" 
   },
   { 
     name: "Divyasree", 
-    description: "Divyasree Developers", 
+    description: "DivyaSree Developers", 
     highlight: false 
   },
   { 
     name: "HAL", 
-    description: "Hindustan Aeronautics Limited", 
+    description: "Hindustan Aeronautics Ltd", 
     highlight: false 
   },
   { 
     name: "ISRO", 
-    description: "Indian Space Research Organisation", 
+    description: "Indian Space Research Org", 
     highlight: false 
   }
 ];
 
 export function Clients() {
   return (
-    <section className="bg-surface py-20 md:py-28 px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-blue-50 relative" id="clients">
-      {/* Decorative background grid item */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f4f9_1px,transparent_1px),linear-gradient(to_bottom,#f0f4f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
+    <section className="bg-surface py-24 md:py-32 px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-primary/5 relative font-light" id="clients">
+      {/* Light wire elements background */}
+      <div className="absolute inset-0 architectural-grid opacity-20 select-none pointer-events-none" />
 
       <div className="max-w-container-max mx-auto text-center relative z-10">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="mb-16"
+           transition={{ duration: 1.2 }}
+           className="mb-16 md:mb-20"
         >
-          <span className="font-accent text-lg text-primary block mb-2">Heritage & Trust</span>
-          <h2 className="font-display text-3xl md:text-5xl text-blue-950 lowercase tracking-tighter">our <span className="text-primary italic font-accent">trusted</span> clients</h2>
-          <p className="mt-4 font-body text-xs md:text-sm text-tertiary max-w-xl mx-auto uppercase tracking-widest leading-relaxed">
-            Pristine civil orchestrations delivered for Bengaluru's most iconic developers and premium institutions.
+          <span className="font-accent text-xs md:text-sm tracking-[0.25em] text-secondary mb-3 block uppercase font-semibold">
+            <Trophy className="w-3.5 h-3.5 text-secondary inline-block mr-1.5 shrink-0 align-text-bottom" />
+            Institutional Trust
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl text-on-surface leading-tight lowercase">
+            our <span className="text-primary italic font-serif font-light">trusted</span> associations
+          </h2>
+          <div className="w-16 h-[1px] bg-secondary/35 mx-auto mt-6" />
+          <p className="mt-4 font-body text-xs md:text-sm text-tertiary max-w-xl mx-auto uppercase tracking-widest leading-loose">
+            Flawless civil installations delivered for Bengaluru's most notable builders and national establishments.
           </p>
         </motion.div>
 
+        {/* Association Tiles */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto">
           {CLIENTS.map((client, idx) => {
             if (client.highlight) {
               return (
                 <motion.div
                   key={client.name}
-                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                  initial={{ opacity: 0, scale: 0.98, y: 15 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1, duration: 0.8 }}
+                  transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
-                  className="flex-1 min-w-[280px] max-w-[360px] relative group p-8 bg-gradient-to-br from-amber-50/70 to-white rounded-3xl border-2 border-amber-200 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
+                  className="flex-1 min-w-[280px] max-w-[360px] relative group p-8 bg-white rounded-2xl border border-primary/5 shadow-[0_15px_40px_rgba(44,71,85,0.02)] overflow-hidden transition-all duration-500 hover:border-secondary/30"
                 >
-                  <div className="absolute top-3 right-3 bg-amber-100 text-amber-800 text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1">
-                    <Sparkles className="w-2.5 h-2.5 text-amber-600 animate-spin" />
-                    Key Associate
+                  <div className="absolute top-4 right-4 text-secondary text-[8px] font-mono font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full bg-primary/5">
+                    ★ Key Partner
                   </div>
                   <div className="text-left mt-2">
-                    <span className="font-display text-3xl md:text-4xl text-amber-950 font-black tracking-tight block">
+                    <span className="font-display text-3xl text-on-surface font-light tracking-tight block">
                       {client.name}
                     </span>
-                    <span className="text-[9px] uppercase tracking-widest text-amber-900 font-mono block mt-1 font-bold">
+                    <span className="text-[9px] uppercase tracking-[0.15em] text-primary font-mono block mt-2 font-semibold">
                       {client.description}
                     </span>
-                    <p className="text-[8px] uppercase tracking-widest text-amber-600/80 font-mono mt-4 border-t border-amber-100 pt-3 italic">
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-secondary font-mono mt-5 border-t border-primary/5 pt-3 mb-0 font-medium whitespace-nowrap">
                       {client.tagline}
                     </p>
                   </div>
@@ -85,16 +92,16 @@ export function Clients() {
             return (
               <motion.div
                 key={client.name}
-                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: idx * 0.1, duration: 0.8 }}
+                transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className="flex-1 min-w-[200px] max-w-[260px] flex flex-col items-center justify-center p-6 bg-white rounded-3xl border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+                className="flex-1 min-w-[190px] max-w-[240px] flex flex-col items-center justify-center p-6 bg-white rounded-2xl border border-primary/5 shadow-[0_10px_35px_rgba(44,71,85,0.01)] hover:border-secondary/20 transition-all duration-500"
               >
-                <span className="font-display text-2xl text-blue-900 font-bold tracking-tight">
+                <span className="font-display text-2xl text-on-surface font-light tracking-tight">
                   {client.name}
                 </span>
-                <span className="text-[8px] uppercase tracking-widest text-primary mt-2 font-mono text-center leading-tight">
+                <span className="text-[8px] uppercase tracking-[0.15em] text-secondary mt-2.5 font-mono text-center leading-tight font-semibold">
                   {client.description}
                 </span>
               </motion.div>
@@ -105,4 +112,3 @@ export function Clients() {
     </section>
   );
 }
-

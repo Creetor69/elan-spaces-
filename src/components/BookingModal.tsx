@@ -5,9 +5,13 @@ import React, { useState } from "react";
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  prefill?: {
+    projectTypes?: string[];
+    package?: string;
+  } | null;
 }
 
-export function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export function BookingModal({ isOpen, onClose, prefill }: BookingModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +20,16 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
     startDate: "",
     vision: ""
   });
+
+  React.useEffect(() => {
+    if (isOpen) {
+      setFormData(prev => ({
+        ...prev,
+        projectTypes: prefill?.projectTypes || [],
+        package: prefill?.package || "None"
+      }));
+    }
+  }, [isOpen, prefill]);
 
   const handleTypeToggle = (type: string) => {
     setFormData(prev => ({
@@ -28,13 +42,13 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Hello Elan Spaces! I'd like to book a site visit.
+    const message = `Hello Elan Spaces! I'd like to arrange an official site visit.
 Name: ${formData.name}
 Email: ${formData.email}
-Project Types: ${formData.projectTypes.join(", ")}
-${formData.projectTypes.includes("Bathroom") ? `Package Selected: ${formData.package}` : ""}
-Planning to Start: ${formData.startDate}
-Vision/Notes: ${formData.vision}`;
+Project Type: ${formData.projectTypes.join(", ")}
+${formData.projectTypes.includes("Bathroom") ? `Curated Package: ${formData.package}` : ""}
+Starting Timeline: ${formData.startDate}
+Design Vision: ${formData.vision}`;
     
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/919731175911?text=${encodedMessage}`, "_blank");
@@ -46,77 +60,82 @@ Vision/Notes: ${formData.vision}`;
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-blue-950/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#121517]/50 backdrop-blur-md"
           />
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.96, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl overflow-y-auto max-h-[90vh] border border-blue-100 no-scrollbar"
+            exit={{ opacity: 0, scale: 0.96, y: 15 }}
+            className="relative w-full max-w-xl bg-white rounded-3xl shadow-[0_30px_70px_rgba(44,71,85,0.15)] overflow-y-auto max-h-[92vh] border border-[#2c4755]/10 no-scrollbar"
           >
             <button 
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-blue-50 text-blue-900 transition-colors z-10"
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-surface text-primary transition-colors z-10"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             <div className="p-8 md:p-10">
               <div className="mb-8">
-                <span className="font-accent text-sm text-primary block mb-1">Direct Connection</span>
-                <h3 className="font-display text-3xl text-blue-950 tracking-tighter">book site <span className="text-primary italic">visit</span></h3>
+                <span className="font-accent text-xs md:text-sm tracking-[0.25em] text-secondary block mb-1 uppercase font-semibold">Direct Connection</span>
+                <h3 className="font-display text-2xl md:text-3xl text-on-surface lowercase">
+                  arrange a private <span className="text-primary italic font-serif">site visit</span>
+                </h3>
               </div>
 
-              <form onSubmit={handleWhatsApp} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleWhatsApp} className="space-y-6 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-2 block font-bold">Name</label>
+                    <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-2 block font-medium">Full Name</label>
                     <input 
                       required
                       type="text" 
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none" 
-                      placeholder="Your name" 
+                      className="w-full bg-[#faf9f6] border border-[#2c4755]/10 rounded-xl p-4 text-xs focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body text-on-surface outline-none" 
+                      placeholder="e.g. Ananth Kumar" 
                     />
                   </div>
                   <div>
-                    <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-2 block font-bold">Email</label>
+                    <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-2 block font-medium">Email Address</label>
                     <input 
                       required
                       type="email" 
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none" 
-                      placeholder="Email address" 
+                      className="w-full bg-[#faf9f6] border border-[#2c4755]/10 rounded-xl p-4 text-xs focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body text-on-surface outline-none" 
+                      placeholder="e.g. ananth@domain.com" 
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-3 block font-bold">Project Type (Select Multiple)</label>
-                  <div className="flex flex-wrap gap-3">
-                    {projectOptions.map(type => (
-                      <button
-                        key={type}
-                        type="button"
-                        onClick={() => handleTypeToggle(type)}
-                        className={`px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-                          formData.projectTypes.includes(type)
-                            ? "bg-primary text-white shadow-lg"
-                            : "bg-blue-50 text-blue-950 border border-blue-100"
-                        }`}
-                      >
-                        {type} {type === "Kitchen" && <span className="lowercase font-normal opacity-60 ml-1">(@1L+)</span>}
-                      </button>
-                    ))}
+                  <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-3 block font-medium">Project Focus (Select Multiple)</label>
+                  <div className="flex flex-wrap gap-2.5">
+                    {projectOptions.map(type => {
+                      const selected = formData.projectTypes.includes(type);
+                      return (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => handleTypeToggle(type)}
+                          className={`px-5 py-2.5 rounded-full text-[10px] font-mono uppercase tracking-[0.2em] transition-all font-medium ${
+                            selected
+                              ? "bg-primary text-white shadow-md border-transparent"
+                              : "bg-[#faf9f6] text-on-surface border border-[#2c4755]/10 hover:border-secondary"
+                          }`}
+                        >
+                          {type} {type === "Kitchen" && <span className="lowercase font-light font-sans opacity-60 ml-0.5">(starts ₹1L+)</span>}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -126,55 +145,55 @@ Vision/Notes: ${formData.vision}`;
                     animate={{ opacity: 1, height: "auto" }}
                     className="space-y-2"
                   >
-                    <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-2 block font-bold">Select Bathroom Package</label>
+                    <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-2 block font-medium">Choose Prefilled Bathroom Standard</label>
                     <select 
                       value={formData.package}
                       onChange={(e) => setFormData({...formData, package: e.target.value})}
-                      className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none appearance-none"
+                      className="w-full bg-[#faf9f6]/90 border border-[#2c4755]/10 rounded-xl p-4 text-xs focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body text-on-surface outline-none appearance-none"
                     >
-                      <option value="None">Help me choose</option>
-                      <option value="Essential">Essential (Standard - Cera)</option>
-                      <option value="Premium">Premium (Popular - Jaquar)</option>
-                      <option value="Elite">Elite (Luxury - Grohe)</option>
-                      <option value="Imperial">Imperial (Ultra Luxury - Kohler & Jacuzzi)</option>
+                      <option value="None">Help me choose the ideal fixtures</option>
+                      <option value="Essential Suite">Essential Suite (Cera Components)</option>
+                      <option value="Premium Retreat">Premium Retreat (Jaquar Concealed)</option>
+                      <option value="Elite Sanctuary">Elite Sanctuary (Grohe & Kohler)</option>
+                      <option value="Imperial Grandeur">Imperial Grandeur (Kohler & Jacuzzi)</option>
                     </select>
                   </motion.div>
                 )}
 
                 <div>
-                  <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-2 block font-bold">When do you plan to start?</label>
+                  <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#8f8173] mb-2 block font-semibold">Project Starting Timeline</label>
                   <select 
                     required
                     value={formData.startDate}
                     onChange={(e) => setFormData({...formData, startDate: e.target.value})}
-                    className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none appearance-none"
+                    className="w-full bg-[#faf9f6] border border-[#2c4755]/10 rounded-xl p-4 text-xs focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body text-on-surface outline-none"
                   >
-                    <option value="">Select Timeline</option>
-                    <option value="Immediately">Immediately</option>
+                    <option value="">Select Target Schedule</option>
+                    <option value="Immediately">Immediately (Within next 2 weeks)</option>
                     <option value="Within 1 month">Within 1 month</option>
                     <option value="1-3 months">1-3 months</option>
-                    <option value="Just exploring">Just exploring</option>
+                    <option value="Just exploring/Planning ahead">Just exploring</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="font-body text-[10px] uppercase tracking-widest text-blue-900/60 mb-2 block font-bold">Brief Vision</label>
+                  <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-2 block font-medium">Describe your vision</label>
                   <textarea 
                     value={formData.vision}
                     onChange={(e) => setFormData({...formData, vision: e.target.value})}
-                    className="w-full bg-blue-50 border border-blue-100 rounded-xl p-4 text-xs h-20 focus:ring-2 focus:ring-blue-400/40 transition-all font-body text-blue-950 outline-none resize-none" 
-                    placeholder="Any specific brands or themes in mind?" 
+                    className="w-full bg-[#faf9f6] border border-[#2c4755]/10 rounded-xl p-4 text-xs h-20 focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body text-[#121517] outline-none resize-none" 
+                    placeholder="E.g. fluted wood paneling, open walk-in wet room, matte black brassware..." 
                   />
                 </div>
 
                 <button 
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 py-5 bg-blue-600 text-white font-body font-bold text-xs rounded-2xl uppercase tracking-[0.2em] hover:bg-blue-700 transition-all duration-500 shadow-xl"
+                  className="w-full flex items-center justify-center gap-2.5 py-4 bg-primary text-white font-mono font-bold text-[10px] rounded-xl uppercase tracking-[0.25em] hover:bg-secondary transition-all duration-500 shadow-md group border border-transparent"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  Request Site Visit
+                  <MessageSquare className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
+                  Connect over WhatsApp
                 </button>
-                <p className="text-[9px] text-center text-blue-900/40 italic font-body">Expert consultation in Bengaluru within 24 hours</p>
+                <p className="text-[8px] text-center text-tertiary uppercase tracking-widest font-light">Senior representative will schedule visit within 12 working hours</p>
               </form>
             </div>
           </motion.div>

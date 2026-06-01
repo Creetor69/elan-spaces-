@@ -2,38 +2,45 @@ import { motion } from "motion/react";
 
 export function Stats() {
   const stats = [
-    { label: "Success Projects", value: 98, suffix: "%" },
-    { label: "Happy Customers", value: 1500, suffix: "+" },
-    { label: "Team Members", value: 30, suffix: "+" },
-    { label: "Years Experience", value: 25, suffix: "+" },
+    { label: "completed sanctuaries", value: "1,500", suffix: "+" },
+    { label: "customer satisfaction", value: "98", suffix: "%" },
+    { label: "master artisans", value: "30", suffix: "+" },
+    { label: "years of legacy", value: "25", suffix: "+" },
   ];
 
   return (
-    <section className="bg-white py-12 md:py-20 px-margin-mobile md:px-margin-desktop border-y border-blue-50">
-      <div className="max-w-container-max mx-auto">
-        <div className="text-center mb-12">
-          <span className="font-accent text-lg text-primary block mb-2">Heritage in Bengaluru</span>
-          <h2 className="font-display text-3xl md:text-5xl text-blue-950 lowercase tracking-tighter">our legacy in <span className="text-primary italic">sanctuary design</span></h2>
+    <section className="bg-surface py-16 md:py-24 px-margin-mobile md:px-margin-desktop border-y border-primary/5 relative overflow-hidden">
+      {/* Blueprint Grid Overlay subtle */}
+      <div className="absolute inset-0 architectural-grid opacity-30 select-none pointer-events-none" />
+
+      <div className="max-w-container-max mx-auto relative z-10">
+        <div className="text-center mb-16 md:mb-20">
+          <span className="font-accent text-xs md:text-sm tracking-[0.25em] text-secondary uppercase block mb-3 font-semibold">Heritage in Bengaluru</span>
+          <h2 className="font-display text-3xl md:text-5xl text-on-surface leading-tight font-light lowercase">
+            our legacy in <span className="text-primary italic font-serif">sanctuary design</span>
+          </h2>
+          <div className="w-16 h-[1px] bg-secondary/30 mx-auto mt-6" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1, duration: 0.8 }}
-            className="flex flex-col items-center text-center"
-          >
-            <div className="font-display text-4xl md:text-6xl text-primary font-bold mb-2 flex items-baseline">
-              <span>{stat.value}</span>
-              <span className="text-2xl md:text-3xl ml-1">{stat.suffix}</span>
-            </div>
-            <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-tertiary">
-              {stat.label}
-            </p>
-          </motion.div>
-        ))}
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          {stats.map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center text-center p-4"
+            >
+              <div className="font-display text-4xl md:text-6xl text-primary font-light mb-3 flex items-baseline justify-center">
+                <span>{stat.value}</span>
+                <span className="text-xl md:text-2xl text-secondary ml-1 font-sans font-light">{stat.suffix}</span>
+              </div>
+              <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-tertiary font-medium">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

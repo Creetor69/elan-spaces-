@@ -81,8 +81,8 @@ export function Footer() {
 
             <div className="flex gap-3.5 items-center">
               <Mail className="w-4 h-4 text-secondary shrink-0" />
-              <a href="mailto:elanspacesblr@gmail.com" className="font-mono text-xs text-tertiary hover:text-primary tracking-wide font-medium">
-                elanspacesblr@gmail.com
+              <a href="mailto:contact@elanspacesbangalore.in" className="font-mono text-xs text-tertiary hover:text-primary tracking-wide font-medium">
+                contact@elanspacesbangalore.in
               </a>
             </div>
 

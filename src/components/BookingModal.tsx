@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { X, MessageSquare } from "lucide-react";
+import { X, MessageSquare, Mail } from "lucide-react";
 import React, { useState } from "react";
 
 interface BookingModalProps {
@@ -40,19 +40,47 @@ export function BookingModal({ isOpen, onClose, prefill }: BookingModalProps) {
     }));
   };
 
-  const handleWhatsApp = (e: React.FormEvent) => {
-    e.preventDefault();
+  const [submitMethod, setSubmitMethod] = useState<'whatsapp' | 'email'>('whatsapp');
+
+  const handleWhatsApp = () => {
     const message = `Hello Elan Spaces! I'd like to arrange an official site visit.
 Name: ${formData.name}
 Email: ${formData.email}
-Project Type: ${formData.projectTypes.join(", ")}
+Project Type: ${formData.projectTypes.join(", ") || "General Inquiry"}
 ${formData.projectTypes.includes("Bathroom") ? `Curated Package: ${formData.package}` : ""}
-Starting Timeline: ${formData.startDate}
-Design Vision: ${formData.vision}`;
+Starting Timeline: ${formData.startDate || "Not Specified"}
+Design Vision: ${formData.vision || "None Specified"}`;
     
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/919731175911?text=${encodedMessage}`, "_blank");
     onClose();
+  };
+
+  const handleEmail = () => {
+    const subject = encodeURIComponent("Elan Spaces - Custom Site Visit Request");
+    const body = encodeURIComponent(`Hello Elan Spaces! I'd like to arrange an official site visit.
+
+Full Name: ${formData.name}
+Client Email: ${formData.email}
+Project Type(s): ${formData.projectTypes.join(", ") || "General Inquiry"}
+${formData.projectTypes.includes("Bathroom") ? `Curated Package: ${formData.package}\n` : ""}Starting Timeline: ${formData.startDate || "Not Specified"}
+
+Design Vision Details:
+${formData.vision || "None specified."}
+
+Sent from Elan Spaces Bangalore Portal.`);
+
+    window.open(`mailto:contact@elanspacesbangalore.in?subject=${subject}&body=${body}`, "_self");
+    onClose();
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submitMethod === 'whatsapp') {
+      handleWhatsApp();
+    } else {
+      handleEmail();
+    }
   };
 
   const projectOptions = ["Home", "Kitchen", "Bathroom"];
@@ -90,7 +118,7 @@ Design Vision: ${formData.vision}`;
                 </h3>
               </div>
 
-              <form onSubmit={handleWhatsApp} className="space-y-6 text-left">
+              <form onSubmit={handleSubmit} className="space-y-6 text-left">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-tertiary mb-2 block font-medium">Full Name</label>
@@ -154,7 +182,7 @@ Design Vision: ${formData.vision}`;
                       <option value="None">Help me choose the ideal fixtures</option>
                       <option value="Essential Suite">Essential Suite (Cera Components)</option>
                       <option value="Premium Retreat">Premium Retreat (Jaquar Concealed)</option>
-                      <option value="Elite Sanctuary">Elite Sanctuary (Grohe & Kohler)</option>
+                      <option value="Elite Sanctuary">Elite Sanctuary (Kohler Premium)</option>
                       <option value="Imperial Grandeur">Imperial Grandeur (Kohler & Jacuzzi)</option>
                     </select>
                   </motion.div>
@@ -186,13 +214,25 @@ Design Vision: ${formData.vision}`;
                   />
                 </div>
 
-                <button 
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2.5 py-4 bg-primary text-white font-mono font-bold text-[10px] rounded-xl uppercase tracking-[0.25em] hover:bg-secondary transition-all duration-500 shadow-md group border border-transparent"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
-                  Connect over WhatsApp
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <button 
+                    type="submit"
+                    onClick={() => setSubmitMethod('whatsapp')}
+                    className="flex items-center justify-center gap-2.5 py-4 bg-[#25d366] hover:bg-[#20ba5a] text-white font-mono font-bold text-[9px] md:text-[10px] rounded-xl uppercase tracking-[0.16em] md:tracking-[0.2em] transition-all duration-300 shadow-md group cursor-pointer"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
+                    Send via WhatsApp
+                  </button>
+
+                  <button 
+                    type="submit"
+                    onClick={() => setSubmitMethod('email')}
+                    className="flex items-center justify-center gap-2.5 py-4 bg-primary hover:bg-secondary text-white font-mono font-bold text-[9px] md:text-[10px] rounded-xl uppercase tracking-[0.16em] md:tracking-[0.2em] transition-all duration-300 shadow-md group cursor-pointer"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-white shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    Send via Email
+                  </button>
+                </div>
                 <p className="text-[8px] text-center text-tertiary uppercase tracking-widest font-light">Senior representative will schedule visit within 12 working hours</p>
               </form>
             </div>

@@ -13,7 +13,7 @@ const FAQS = [
   },
   { 
     q: "Can I hand-select my stones, quartz, and luxury fittings?", 
-    a: "Absolutely. Our curated design atelier takes you through selecting rare slabs, premium quartz tech-surfaces, custom-veined marble, and professional-grade fixtures from elite global brands like Kohler, Toto, Grohe, and Jaquar." 
+    a: "Absolutely. Our curated design atelier takes you through selecting rare slabs, premium quartz tech-surfaces, custom-veined marble, and professional-grade fixtures from elite global brands like Kohler, Toto, and Jaquar." 
   },
   { 
     q: "Do you work with fixed quotations and timelines?", 

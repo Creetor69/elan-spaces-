@@ -53,7 +53,7 @@ export function Booking({ onOpenBooking }: BookingSectionProps) {
                </div>
                <div>
                  <p className="font-mono text-[8px] uppercase tracking-widest text-[#8f8173] font-semibold">email office</p>
-                 <a href="mailto:elanspacesblr@gmail.com" className="text-white font-mono text-xs hover:text-secondary transition-colors mt-0.5 block font-bold">elanspacesblr@gmail.com</a>
+                 <a href="mailto:contact@elanspacesbangalore.in" className="text-white font-mono text-xs hover:text-secondary transition-colors mt-0.5 block font-bold">contact@elanspacesbangalore.in</a>
                </div>
              </div>
 

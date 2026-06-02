@@ -16,7 +16,7 @@ import { BookingModal } from "./components/BookingModal";
 import { FloatingActions } from "./components/FloatingActions";
 
 export default function App() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(true);
   const [bookingPrefill, setBookingPrefill] = useState<{
     projectTypes?: string[];
     package?: string;

@@ -44,11 +44,11 @@ const TIERS = [
     price: "₹2,09,842", 
     popular: false,
     subtitle: "+ GST | Starting for 4' x 7' Layout",
-    brand: "Fixtures: Grohe & Kohler Curation",
+    brand: "Fixtures: Kohler Premium Curation",
     features: [
       "Everything in Premium, plus:",
       "Thermostatic temperature safety controls",
-      "German-milled Grohe pressure balancing valves",
+      "Imported premium pressure balancing valves",
       "Architectural linear wall drains in stainless steel",
       "Italian mineral composite basins",
       "Double-coat acrylic liquid rubber waterproofing",

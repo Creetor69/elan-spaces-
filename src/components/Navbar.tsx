@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { Menu } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface NavbarProps {
@@ -92,16 +92,50 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
       <div className="flex items-center gap-2">
         <motion.button 
           onClick={onOpenBooking}
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 0 25px rgba(143, 129, 115, 0.45)",
+          whileHover="hover"
+          initial="rest"
+          animate="rest"
+          variants={{
+            rest: { 
+              scale: 1,
+              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)"
+            },
+            hover: { 
+              scale: 1.08,
+              boxShadow: "0 0 30px rgba(143, 129, 115, 0.55), 0 10px 20px rgba(143, 129, 115, 0.25)"
+            }
           }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 400, damping: 15 }}
-          className="hidden md:block font-body text-[9px] bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-all duration-500 ease-in-out shadow-md font-bold uppercase tracking-widest relative overflow-hidden group cursor-pointer"
+          whileTap={{ scale: 0.96 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 180,
+            damping: 12,
+            mass: 0.8
+          }}
+          className="hidden md:block font-body text-[9px] bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-all duration-700 ease-out shadow-md font-bold uppercase tracking-widest relative overflow-hidden group cursor-pointer"
           id="nav-inquire-btn"
         >
-          <span className="relative z-10">Request Site Visit</span>
+          <span className="relative z-10 flex items-center justify-center gap-1.5">
+            <motion.span
+              variants={{
+                rest: { scale: 1, rotate: 0 },
+                hover: { 
+                  scale: 1.3, 
+                  rotate: 15,
+                  transition: { 
+                    repeat: Infinity, 
+                    repeatType: "reverse", 
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  } 
+                }
+              }}
+              className="inline-block shrink-0"
+            >
+              <Sparkles className="w-3 h-3 text-white fill-white/10 animate-pulse" />
+            </motion.span>
+            <span>Request Site Visit</span>
+          </span>
           <span className="absolute inset-0 bg-secondary skew-y-12 translate-y-8 group-hover:translate-y-0 transition-transform duration-500" />
         </motion.button>
         <button 

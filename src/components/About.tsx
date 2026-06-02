@@ -11,7 +11,7 @@ export function About() {
     {
       icon: Trees,
       title: "Sustainable Sourcing",
-      desc: "Water-conserving Kohler/Grohe brassware and certified low-emission cabinetry constructed for long generational lifespans."
+      desc: "Water-conserving Kohler brassware and certified low-emission cabinetry constructed for long generational lifespans."
     },
     {
       icon: Sliders,
